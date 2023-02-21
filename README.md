@@ -29,6 +29,7 @@
 - 02-20-2023 5:10pm - added search form component
 - 02-20-2023 5:36pm - added search results component
 - 02-20-2023 5:53pm - added error messages for users
+- 02-20-2023 6:21pm - added map to selected location
 
 ## Credit and Collaborations
 

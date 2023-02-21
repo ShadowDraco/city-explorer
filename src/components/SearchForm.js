@@ -79,7 +79,17 @@ class SearchForm extends React.Component {
 					</Button>
 				</Form>
 
-				<SearchResults results={this.state.results ? this.state.results : ''} />
+				{this.state.results ? (
+					<>
+						<h3> Explore locations matching: {this.props.searchQuery}</h3>
+						<SearchResults
+							results={this.state.results}
+							searchQuery={this.state.searchQuery}
+						/>
+					</>
+				) : (
+					''
+				)}
 			</>
 		)
 	}
