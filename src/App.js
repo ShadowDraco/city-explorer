@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import axios from 'axios'
+
+import Button from 'react-bootstrap/Button'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const ACCESS_TOKEN = process.env.REACT_APP_LOCATION_ACCESS_TOKEN
+	let searchString = 'seattle'
+
+	let requestLocation = async () => {
+		axios
+			.get(
+				`https://us1.locationiq.com/v1/search?key=${ACCESS_TOKEN}&q=${searchString}&format=json`
+			)
+			.then(res => {
+				console.log(res.data)
+			})
+	}
+
+	return (
+		<div className='App'>
+			<Button onClick={requestLocation}>Click me</Button>
+		</div>
+	)
 }
 
-export default App;
+export default App
