@@ -2,14 +2,34 @@
 	text-align: center;
 }
 
-.form-group {
+.search-form-group {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
 
-.form-group input {
+.search-form-group input {
+	text-align: center;
 	width: 25%;
 	margin: 1em;
+}
+
+.result-container {
+	padding-top: 1em;
+	border-bottom: 2px black double;
+	transition: 0.5s;
+}
+
+.result-container:hover {
+	filter: brightness(90%);
+}
+
+.result-container:last-child {
+	border: none;
+}
+
+.long-lat {
+	display: flex;
+	justify-content: space-evenly;
 }
