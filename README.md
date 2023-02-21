@@ -1,7 +1,7 @@
 # City Explorer
 
 **Author**: Ethan Storm
-**Version**: 1.0.2 (increment the patch/fix version number if you make more commits past your first submission)
+**Version**: 1.0.5 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
 
@@ -27,6 +27,8 @@
 - 02-20-2023 12:29pm - Initial commit of CRA and readme.
 - 02-20-2023 4:30pm - added button to test and debug API calls server/client
 - 02-20-2023 5:10pm - added search form component
+- 02-20-2023 5:36pm - added search results component
+- 02-20-2023 5:53pm - added error messages for users
 
 ## Credit and Collaborations
 
