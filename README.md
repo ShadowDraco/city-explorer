@@ -1,7 +1,7 @@
 # City Explorer
 
 **Author**: Ethan Storm
-**Version**: 1.0.5 (increment the patch/fix version number if you make more commits past your first submission)
+**Version**: 1.0.6 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
 
@@ -30,6 +30,7 @@
 - 02-20-2023 5:36pm - added search results component
 - 02-20-2023 5:53pm - added error messages for users
 - 02-20-2023 6:21pm - added map to selected location
+- 02-20-2023 6:51pm - improved styling, added animations
 
 ## Credit and Collaborations
 
