@@ -28,8 +28,19 @@ class SearchForm extends React.Component {
 				`https://us1.locationiq.com/v1/search?key=${this.ACCESS_TOKEN}&q=${this.state.searchQuery}&format=json`
 			)
 			.then(res => {
-				console.log(res.data)
 				this.updateResults(res.data)
+				this.state.error ? this.setState({ error: '' }) : console.log()
+			})
+			.catch(error => {
+				let errorCodes = [400, 404, 500]
+				console.log(error)
+				if (errorCodes.includes(error.response.status)) {
+					this.setState({
+						error: 'Unable to geocode. Check spelling or try another location.',
+					})
+				} else {
+					// check for other code errors
+				}
 			})
 	}
 
@@ -50,7 +61,17 @@ class SearchForm extends React.Component {
 							type='text'
 							placeholder='Seattle'
 						/>
-						<Form.Text className='text-muted'>Try a city perhaps!</Form.Text>
+						<Form.Text className='text-muted'>
+							{this.state.error ? 'Error - !' : 'Try a city perhaps!'}
+						</Form.Text>
+
+						{this.state.error ? (
+							<Form.Text className='text-danger text-center'>
+								{this.state.error}
+							</Form.Text>
+						) : (
+							''
+						)}
 					</Form.Group>
 
 					<Button variant='primary' type='submit'>
