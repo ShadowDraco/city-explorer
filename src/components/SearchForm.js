@@ -1,9 +1,12 @@
 import React from 'react'
 import axios from 'axios'
 
+import SearchResults from './SearchResults'
+import Error from './Error'
+import MinorError from './MinorError'
+
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import SearchResults from './SearchResults'
 
 class SearchForm extends React.Component {
 	constructor(props) {
@@ -62,17 +65,15 @@ class SearchForm extends React.Component {
 							placeholder='Seattle'
 						/>
 						<Form.Text className='text-muted'>
-							{this.state.error ? 'Error - !' : 'Try a city perhaps!'}
+							{this.state.error ? (
+								<MinorError errorMessage={'Error - !'} />
+							) : (
+								'Try a city perhaps!'
+							)}
 						</Form.Text>
-
-						{this.state.error ? (
-							<Form.Text className='text-danger text-center'>
-								{this.state.error}
-							</Form.Text>
-						) : (
-							''
-						)}
 					</Form.Group>
+
+					{this.state.error ? <Error errorMessage={this.state.error} /> : ''}
 
 					<Button variant='primary' type='submit'>
 						Explore!

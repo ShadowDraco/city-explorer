@@ -30,6 +30,13 @@
 - 02-20-2023 6:21pm - added map to selected location
 - 02-20-2023 6:51pm - improved styling, added animations
 
+- 02-21-2023 12:30pm - updated readme and branched for weather api
+- 02-21-2023 5:04pm - finished all requirements to add server requests to client
+
 ## Credit and Collaborations
 
+Day one planned with:
+
 - [Darran Holmes](https://github.com/darranholmes74)
+
+![Whiteboard plan](./whiteboards/CityExplorer1.png)

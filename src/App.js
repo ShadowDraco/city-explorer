@@ -2,13 +2,13 @@ import './App.css'
 
 import SearchForm from './components/SearchForm'
 
+import Container from 'react-bootstrap/Container'
+
 function App() {
-
-
 	return (
-		<div className='App'>
+		<Container fluid className='App'>
 			<SearchForm />
-		</div>
+		</Container>
 	)
 }
 
