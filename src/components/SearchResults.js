@@ -1,13 +1,14 @@
 import React from 'react'
 import axios from 'axios'
 
-import Map from './Map'
-import MapButtons from './MapButtons'
+import Map from './searchResults/Map'
+import MapButtons from './searchResults/MapButtons'
 import Error from './Error'
 import MinorError from './MinorError'
-import Weather from './Weather'
+import Weather from './searchResults/Weather'
 
 import Container from 'react-bootstrap/Container'
+import LocationInfo from './LocationInfo'
 class SearchResults extends React.Component {
 	constructor(props) {
 		super(props)
@@ -78,6 +79,9 @@ class SearchResults extends React.Component {
 												<p>{result.lat}</p>
 											</Container>
 										</Container>
+
+										{ this.state.mapIndex === i? <LocationInfo /> : ""}
+
 										{/* Display the map for only the selected location */}
 										{this.state.mapImage ? (
 											i === this.state.mapIndex ? (
