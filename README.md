@@ -35,6 +35,8 @@
 
 - 02-22-2023 10:00am - branched for refactoring weather and adding movie API
 - 02-22-2023 10:50am - implemented proper weather api in front and back end
+- 02-22-2023 11:30am - added locationInfo component to write cleaner code
+- 02-22-2023 11:50am - implemented locationInfo successfully
 
 ## Credit and Collaborations
 

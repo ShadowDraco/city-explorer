@@ -1,12 +1,6 @@
 import React from 'react'
 import axios from 'axios'
 
-import Map from './searchResults/Map'
-import MapButtons from './searchResults/MapButtons'
-import Error from './Error'
-import MinorError from './MinorError'
-import Weather from './searchResults/Weather'
-
 import Container from 'react-bootstrap/Container'
 import LocationInfo from './LocationInfo'
 class SearchResults extends React.Component {
@@ -72,6 +66,7 @@ class SearchResults extends React.Component {
 										className='result-container'
 										key={result.display_name}
 									>
+										{/* Return selectable location 'cards' */}
 										<Container className='result-info'>
 											<h5>{result.display_name}</h5>
 											<Container className='long-lat'>
@@ -80,39 +75,19 @@ class SearchResults extends React.Component {
 											</Container>
 										</Container>
 
-										{ this.state.mapIndex === i? <LocationInfo /> : ""}
-
-										{/* Display the map for only the selected location */}
-										{this.state.mapImage ? (
-											i === this.state.mapIndex ? (
-												<>
-													<Map mapImage={this.state.mapImage} />
-													<MapButtons
-														increaseZoom={this.increaseZoom}
-														decreaseZoom={this.decreaseZoom}
-													/>
-													{this.state.minorError ? (
-														<MinorError errorMessage={this.state.minorError} />
-													) : (
-														''
-													)}
-												</>
-											) : (
-												''
-											)
-										) : (
-											''
-										)}
-
-										{/* Display the forecasts for only the selected location */}
-										{this.state.forecasts ? (
-											i === this.state.mapIndex ? (
-												<Weather forecasts={this.state.forecasts} />
-											) : (
-												''
-											)
-										) : i === this.state.mapIndex ? (
-											<Error errorMessage={this.state.error} />
+										{/* Display the map, weather and movies for only the selected location */}
+										{/* pass errors from parent and try to display in correct location */}
+										{this.state.mapIndex === i ? (
+											<LocationInfo
+												mapInfo={{
+													mapImage: this.state.mapImage,
+													increaseZoom: this.increaseZoom,
+													decreaseZoom: this.decreaseZoom,
+												}}
+												weatherInfo={this.state.forecasts}
+												error={this.state.error}
+												minorError={this.state.minorError}
+											/>
 										) : (
 											''
 										)}
