@@ -27,6 +27,7 @@ class SearchResults extends React.Component {
 	}
 
 	getWeatherFor = async result => {
+		// request weather at api
 		axios
 			.post('http://localhost:8000/weather', {
 				lat: result.lat,
@@ -34,9 +35,11 @@ class SearchResults extends React.Component {
 				searchQuery: result.display_name.split(',')[0],
 			})
 			.then(res => {
+				// set state resulting forecasts
 				this.setState({ forecasts: res.data, error: '' })
 			})
 			.catch(err => {
+				// catch error and set error state
 				console.log(err)
 				this.setState({
 					error: err.response.data,

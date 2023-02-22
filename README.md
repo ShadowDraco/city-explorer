@@ -33,6 +33,9 @@
 - 02-21-2023 12:30pm - updated readme and branched for weather api
 - 02-21-2023 5:04pm - finished all requirements to add server requests to client
 
+- 02-22-2023 10:00am - branched for refactoring weather and adding movie API
+- 02-22-2023 10:50am - implemented proper weather api in front and back end
+
 ## Credit and Collaborations
 
 Day one planned with:
