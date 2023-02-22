@@ -31,7 +31,7 @@
 - 02-20-2023 6:51pm - improved styling, added animations
 
 - 02-21-2023 12:30pm - updated readme and branched for weather api
-- 02-21-2023 4:20pm - finished all requirements to add server requests to client
+- 02-21-2023 5:04pm - finished all requirements to add server requests to client
 
 ## Credit and Collaborations
 
