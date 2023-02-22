@@ -36,6 +36,12 @@ export default class LocationInfo extends React.Component {
 				) : (
 					<Error errorMessage={this.props.error} />
 				)}
+
+				{this.props.movieInfo ? (
+					<Movies movies={this.props.movieInfo} />
+				) : (
+					<Error errorMessage={this.props.error} />
+				)}
 			</Container>
 		)
 	}

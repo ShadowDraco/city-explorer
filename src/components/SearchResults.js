@@ -12,13 +12,31 @@ class SearchResults extends React.Component {
 	}
 
 	setMapLocation = async (result, index) => {
-		this.setState({ mapLocation: result })
-		this.setState({ mapIndex: index })
+		this.setState({
+			mapLocation: result,
+			mapIndex: index,
+			mapName: result.display_name,
+		})
 		this.setState({
 			mapImage: `https://maps.locationiq.com/v3/staticmap?key=${this.ACCESS_TOKEN}&center=${result.lat},${result.lon}&zoom=${this.state.zoom}&size=350x350&markers=icon:large-red-cutout|${result.lat},${result.lon}`,
 		})
 
 		await this.getWeatherFor(result)
+		await this.getMovieFor(result.display_name)
+	}
+
+	getMovieFor = async name => {
+		axios
+			.post('http://localhost:8000/movies', {
+				searchQuery: name,
+			})
+			.then(res => {
+				this.setState({ movies: res.data })
+			})
+			.catch(err => {
+				console.log(err)
+				this.setState({ error: err.response.data, movies: '' })
+			})
 	}
 
 	getWeatherFor = async result => {
@@ -37,7 +55,7 @@ class SearchResults extends React.Component {
 				// catch error and set error state
 				console.log(err)
 				this.setState({
-					error: err.response.data,
+					error: err.response,
 					forecasts: '',
 				})
 			})
@@ -85,6 +103,7 @@ class SearchResults extends React.Component {
 													decreaseZoom: this.decreaseZoom,
 												}}
 												weatherInfo={this.state.forecasts}
+												movieInfo={this.state.movies}
 												error={this.state.error}
 												minorError={this.state.minorError}
 											/>
