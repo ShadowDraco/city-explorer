@@ -45,6 +45,7 @@
 - 02-22-2023 7:50am - branched for refactoring
 - 02-22-2023 8:15am - commented code getting ready to add new component
 - 02-22-2023 8:21am - added result component for cleaner code
+- 02-22-2023 8:31am - added search bar component for cleaner code
 
 ## Credit and Collaborations
 
