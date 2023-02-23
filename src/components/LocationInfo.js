@@ -13,13 +13,13 @@ import Container from 'react-bootstrap/Container'
 export default class LocationInfo extends React.Component {
 	constructor(props) {
 		super(props)
-		console.log()
+		console.log(this)
 	}
 
 	render() {
 		return (
 			<Container>
-				{this.props.mapInfo ? (
+				{this.props.mapInfo.mapImage ? (
 					<>
 						<Map mapImage={this.props.mapInfo.mapImage} />
 						<MapButtons
@@ -37,8 +37,8 @@ export default class LocationInfo extends React.Component {
 					<Error errorMessage={this.props.error} />
 				)}
 
-				{this.props.movieInfo ? (
-					<Movies movies={this.props.movieInfo} />
+				{this.props.movieInfo.movies ? (
+					<Movies movies={this.props.movieInfo.movies} />
 				) : (
 					<Error errorMessage={this.props.error} />
 				)}

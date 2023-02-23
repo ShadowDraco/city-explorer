@@ -8,7 +8,7 @@ class SearchResults extends React.Component {
 		super(props)
 
 		this.ACCESS_TOKEN = process.env.REACT_APP_LOCATION_ACCESS_TOKEN
-		this.state = { mapLocation: '', mapImage: '', zoom: 15 }
+		this.state = { mapLocation: '', mapImage: '', zoom: 15, weatherInfo: '' }
 	}
 
 	setMapLocation = async (result, index) => {
@@ -31,7 +31,7 @@ class SearchResults extends React.Component {
 				searchQuery: name,
 			})
 			.then(res => {
-				this.setState({ movies: res.data })
+				this.setState({ movies: res.data, error: '' })
 			})
 			.catch(err => {
 				console.log(err)
@@ -55,7 +55,7 @@ class SearchResults extends React.Component {
 				// catch error and set error state
 				console.log(err)
 				this.setState({
-					error: err.response,
+					error: err.response.data,
 					forecasts: '',
 				})
 			})
@@ -80,12 +80,14 @@ class SearchResults extends React.Component {
 						? this.props.results.map((result, i) => {
 								return (
 									<Container
-										onClick={() => this.setMapLocation(result, i)}
 										className='result-container'
 										key={result.display_name}
 									>
 										{/* Return selectable location 'cards' */}
-										<Container className='result-info'>
+										<Container
+											className='result-info'
+											onClick={() => this.setMapLocation(result, i)}
+										>
 											<h5>{result.display_name}</h5>
 											<Container className='long-lat'>
 												<p>{result.lon}</p>
@@ -103,7 +105,7 @@ class SearchResults extends React.Component {
 													decreaseZoom: this.decreaseZoom,
 												}}
 												weatherInfo={this.state.forecasts}
-												movieInfo={this.state.movies}
+												movieInfo={{ movies: this.state.movies }}
 												error={this.state.error}
 												minorError={this.state.minorError}
 											/>
