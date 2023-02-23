@@ -2,7 +2,8 @@ import React from 'react'
 import axios from 'axios'
 
 import Container from 'react-bootstrap/Container'
-import LocationInfo from './LocationInfo'
+import LocationInfo from './searchResults/LocationInfo'
+import Result from './searchResults/Result'
 class SearchResults extends React.Component {
 	constructor(props) {
 		super(props)
@@ -12,6 +13,7 @@ class SearchResults extends React.Component {
 		this.state = { mapLocation: '', mapImage: '', zoom: 15, weatherInfo: '' }
 	}
 
+	// when user selects a location after searching update state to include information to be displayed by various components
 	setMapLocation = async (result, index) => {
 		this.setState({
 			lat: result.lat,
@@ -26,28 +28,28 @@ class SearchResults extends React.Component {
 		await this.getMovieFor(result.display_name)
 	}
 
+	// get movies for a 'resulting' location
 	getMovieFor = async name => {
 		axios
-			.post(
-				`https://frolic-through-city-api.onrender.com
-/movies`,
-				{
-					searchQuery: name,
-				}
-			)
+			.post(`${this.API_URL}/movies`, {
+				searchQuery: name,
+			})
 			.then(res => {
+				// update movies with success
 				this.setState({ movies: res.data, error: '' })
 			})
 			.catch(err => {
+				// add error message to display when failing
 				console.log(err)
 				this.setState({ error: err.response.data, movies: '' })
 			})
 	}
 
+	// get weather for a 'resulting' location
 	getWeatherFor = async result => {
 		// request weather at api
 		axios
-			.post(`https://frolic-through-city-api.onrender.com/weather`, {
+			.post(`${this.API_URL}/weather`, {
 				lat: result.lat,
 				lon: result.lon,
 				searchQuery: result.display_name.split(',')[0],
@@ -66,12 +68,14 @@ class SearchResults extends React.Component {
 			})
 	}
 
+	// update state for the image so it can be rerendered properly and quickly
 	updateMapImage = () => {
 		this.setState({
 			mapImage: `https://maps.locationiq.com/v3/staticmap?key=${this.ACCESS_TOKEN}&center=${this.state.lat},${this.state.lon}&zoom=${this.state.zoom}&size=350x350&markers=icon:large-red-cutout|${this.state.lat},${this.state.lon}`,
 		})
 	}
 
+	// Increase or decrease state for mapImage zoom.
 	increaseZoom = () => {
 		console.log('increasing')
 		this.state.zoom < 18
@@ -100,18 +104,13 @@ class SearchResults extends React.Component {
 										key={result.display_name}
 									>
 										{/* Return selectable location 'cards' */}
-										<Container
-											className='result-info'
-											onClick={() => this.setMapLocation(result, i)}
-										>
-											<h5>{result.display_name}</h5>
-											<Container className='long-lat'>
-												<p>{result.lon}</p>
-												<p>{result.lat}</p>
-											</Container>
-										</Container>
+										<Result
+											result={result}
+											index={i}
+											setMapLocation={this.setMapLocation}
+										/>
 
-										{/* Display the map, weather and movies for only the selected location */}
+										{/* Display the map, weather and movies for only the -selected- location */}
 										{/* pass errors from parent and try to display in correct location */}
 										{this.state.mapIndex === i ? (
 											<LocationInfo

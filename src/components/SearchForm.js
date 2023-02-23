@@ -2,11 +2,7 @@ import React from 'react'
 import axios from 'axios'
 
 import SearchResults from './SearchResults'
-import Error from './Error'
-import MinorError from './MinorError'
-
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import SearchBar from './SearchForm/SearchBar'
 
 class SearchForm extends React.Component {
 	constructor(props) {
@@ -19,6 +15,7 @@ class SearchForm extends React.Component {
 		this.setState({ searchQuery: e.target.value, results: '' })
 	}
 
+	// update results passed to searchResults
 	updateResults = data => {
 		this.setState({ results: data })
 	}
@@ -50,35 +47,12 @@ class SearchForm extends React.Component {
 	render() {
 		return (
 			<>
-				<Form
-					className='search-form my-3 py-3 border border-primary border-3'
-					onSubmit={this.handleSubmit}
-				>
-					<Form.Group
-						className='mb-3 search-form-group'
-						controlId='formBasicEmail'
-					>
-						<Form.Label>Find a location!</Form.Label>
-						<Form.Control
-							onChange={this.changeSearchQuery}
-							type='text'
-							placeholder='Seattle'
-						/>
-						<Form.Text className='text-muted'>
-							{this.state.error ? (
-								<MinorError errorMessage={'Error - !'} />
-							) : (
-								'Try a city perhaps!'
-							)}
-						</Form.Text>
-					</Form.Group>
-
-					{this.state.error ? <Error errorMessage={this.state.error} /> : ''}
-
-					<Button variant='primary' type='submit'>
-						Explore!
-					</Button>
-				</Form>
+				<SearchBar
+					handleSubmit={this.handleSubmit}
+					changeSearchQuery={this.changeSearchQuery}
+					error={this.state.error}
+					minorError={this.state.minorError}
+				/>
 
 				{this.state.results ? (
 					<>
