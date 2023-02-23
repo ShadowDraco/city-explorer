@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 
 import Container from 'react-bootstrap/Container'
-import LocationInfo from './LocationInfo'
+import LocationInfo from './searchResults/LocationInfo'
 import Result from './searchResults/Result'
 class SearchResults extends React.Component {
 	constructor(props) {

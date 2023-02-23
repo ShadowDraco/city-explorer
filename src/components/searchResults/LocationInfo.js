@@ -1,12 +1,12 @@
 import React from 'react'
 
-import Map from './searchResults/Map'
-import MapButtons from './searchResults/MapButtons'
-import Weather from './searchResults/Weather'
-import Movies from './searchResults/Movies'
+import Map from './Map'
+import MapButtons from './MapButtons'
+import Weather from './Weather'
+import Movies from './Movies'
 
-import Error from './Error'
-import MinorError from './MinorError'
+import Error from '../Error'
+import MinorError from '../MinorError'
 
 import Container from 'react-bootstrap/Container'
 
