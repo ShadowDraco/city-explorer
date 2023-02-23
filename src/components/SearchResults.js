@@ -15,6 +15,7 @@ class SearchResults extends React.Component {
 
 	// when user selects a location after searching update state to include information to be displayed by various components
 	setMapLocation = async (result, index) => {
+		console.log(result)
 		this.setState({
 			lat: result.lat,
 			lon: result.lon,
@@ -25,7 +26,7 @@ class SearchResults extends React.Component {
 		})
 
 		await this.getWeatherFor(result)
-		await this.getMovieFor(result.display_name)
+		await this.getMovieFor(result.display_name.split(',')[0])
 	}
 
 	// get movies for a 'resulting' location
@@ -35,6 +36,7 @@ class SearchResults extends React.Component {
 				searchQuery: name,
 			})
 			.then(res => {
+				console.log(res)
 				// update movies with success
 				this.setState({ movies: res.data, error: '' })
 			})
