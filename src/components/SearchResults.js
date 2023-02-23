@@ -9,7 +9,7 @@ class SearchResults extends React.Component {
 		super(props)
 
 		this.ACCESS_TOKEN = process.env.REACT_APP_LOCATION_ACCESS_TOKEN
-		this.API_URL = 'http://localhost:8000'
+		this.API_URL = process.env.REACT_APP_API_URL
 		this.state = { mapLocation: '', mapImage: '', zoom: 15, weatherInfo: '' }
 	}
 
