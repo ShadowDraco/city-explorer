@@ -27,7 +27,7 @@ class SearchResults extends React.Component {
 
 	getMovieFor = async name => {
 		axios
-			.post('https://frolic-through-city-api.onrender.com/movies', {
+			.post(`${process.env.REACT_APP_API_URL}/weather`, {
 				searchQuery: name,
 			})
 			.then(res => {
@@ -42,7 +42,7 @@ class SearchResults extends React.Component {
 	getWeatherFor = async result => {
 		// request weather at api
 		axios
-			.post('https://frolic-through-city-api.onrender.com/weather', {
+			.post(`${process.env.REACT_APP_API_URL}/weather`, {
 				lat: result.lat,
 				lon: result.lon,
 				searchQuery: result.display_name.split(',')[0],
