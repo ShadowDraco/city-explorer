@@ -3,12 +3,13 @@ import axios from 'axios'
 
 import Container from 'react-bootstrap/Container'
 import LocationInfo from './LocationInfo'
+import Result from './searchResults/Result'
 class SearchResults extends React.Component {
 	constructor(props) {
 		super(props)
 
 		this.ACCESS_TOKEN = process.env.REACT_APP_LOCATION_ACCESS_TOKEN
-		this.API_URL = process.env.REACT_APP_API_URL 
+		this.API_URL = process.env.REACT_APP_API_URL
 		this.state = { mapLocation: '', mapImage: '', zoom: 15, weatherInfo: '' }
 	}
 
@@ -103,18 +104,13 @@ class SearchResults extends React.Component {
 										key={result.display_name}
 									>
 										{/* Return selectable location 'cards' */}
-										<Container
-											className='result-info'
-											onClick={() => this.setMapLocation(result, i)}
-										>
-											<h5>{result.display_name}</h5>
-											<Container className='long-lat'>
-												<p>{result.lon}</p>
-												<p>{result.lat}</p>
-											</Container>
-										</Container>
+										<Result
+											result={result}
+											index={i}
+											setMapLocation={this.setMapLocation}
+										/>
 
-										{/* Display the map, weather and movies for only the selected location */}
+										{/* Display the map, weather and movies for only the -selected- location */}
 										{/* pass errors from parent and try to display in correct location */}
 										{this.state.mapIndex === i ? (
 											<LocationInfo
