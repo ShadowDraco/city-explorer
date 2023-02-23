@@ -22,6 +22,7 @@ export default class Weather extends React.Component {
 								className='forecast flex-column border-2 border-end border-dark'
 							>
 								<h5>{forecast.description}</h5>
+								<h6 className='mt-3'>{forecast.dateDay}</h6>
 								<p>{forecast.date}</p>
 							</Col>
 						)
