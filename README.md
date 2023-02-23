@@ -39,7 +39,7 @@
 - 02-22-2023 11:50am - implemented locationInfo successfully
 - 02-21-2023 2:45pm - adds successful movie queries and display
 - 02-21-2023 4:07pm - adds support for when request limit is reached
-- 02-21-2023 4:07pm - adds support for when request limit is reached
+- 02-21-2023 4:31pm - updates request routes
 
 ## Credit and Collaborations
 
