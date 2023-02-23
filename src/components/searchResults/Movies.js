@@ -16,7 +16,7 @@ export default class Movies extends React.Component {
 			<>
 				<h4 className='mt-5'> Movies in the area:</h4>
 				<Container className='movie-container mt-3'>
-					{this.props.movies ? (
+					{this.props.movies.length > 0 ? (
 						this.props.movies.map(movie => {
 							return (
 								<Container key={movie.image_url} className='movie'>
@@ -26,7 +26,7 @@ export default class Movies extends React.Component {
 							)
 						})
 					) : (
-						<MinorError errorMessage='There are no movies to display right now' />
+						<MinorError errorMessage='There are no movies for the area' />
 					)}
 				</Container>
 			</>
