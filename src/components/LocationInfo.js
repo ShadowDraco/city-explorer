@@ -13,7 +13,7 @@ import Container from 'react-bootstrap/Container'
 export default class LocationInfo extends React.Component {
 	constructor(props) {
 		super(props)
-		console.log(this)
+		console.log()
 	}
 
 	render() {

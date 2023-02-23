@@ -13,11 +13,11 @@ class SearchResults extends React.Component {
 
 	setMapLocation = async (result, index) => {
 		this.setState({
+			lat: result.lat,
+			lon: result.lon,
 			mapLocation: result,
 			mapIndex: index,
 			mapName: result.display_name,
-		})
-		this.setState({
 			mapImage: `https://maps.locationiq.com/v3/staticmap?key=${this.ACCESS_TOKEN}&center=${result.lat},${result.lon}&zoom=${this.state.zoom}&size=350x350&markers=icon:large-red-cutout|${result.lat},${result.lon}`,
 		})
 
@@ -61,14 +61,25 @@ class SearchResults extends React.Component {
 			})
 	}
 
+	updateMapImage = () => {
+		this.setState({
+			mapImage: `https://maps.locationiq.com/v3/staticmap?key=${this.ACCESS_TOKEN}&center=${this.state.lat},${this.state.lon}&zoom=${this.state.zoom}&size=350x350&markers=icon:large-red-cutout|${this.state.lat},${this.state.lon}`,
+		})
+	}
+
 	increaseZoom = () => {
+		console.log('increasing')
 		this.state.zoom < 18
-			? this.setState({ zoom: this.state.zoom + 1, minorError: '' })
+			? this.setState({ zoom: this.state.zoom + 1, minorError: '' }, () => {
+					this.updateMapImage()
+			  })
 			: this.setState({ minorError: 'you cannot zoom further' })
 	}
 	decreaseZoom = () => {
 		this.state.zoom > 0
-			? this.setState({ zoom: this.state.zoom - 1, minorError: '' })
+			? this.setState({ zoom: this.state.zoom - 1, minorError: '' }, () => {
+					this.updateMapImage()
+			  })
 			: this.setState({ minorError: 'you cannot zoom further' })
 	}
 

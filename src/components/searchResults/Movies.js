@@ -13,21 +13,23 @@ export default class Movies extends React.Component {
 
 	render() {
 		return (
-			<Container className='movie-container mt-5'>
-				<h4> Movies in the area:</h4>
-				{this.props.movies ? (
-					this.props.movies.map(movie => {
-						return (
-							<Container key={movie.image_url} className='movie'>
-								<Image src={movie.image_url} alt={movie.title} />
-								<p>{movie.overview}</p>
-							</Container>
-						)
-					})
-				) : (
-					<MinorError errorMessage='There are no movies to display right now' />
-				)}
-			</Container>
+			<>
+				<h4 className='mt-5'> Movies in the area:</h4>
+				<Container className='movie-container mt-3'>
+					{this.props.movies ? (
+						this.props.movies.map(movie => {
+							return (
+								<Container key={movie.image_url} className='movie'>
+									<Image src={movie.image_url} alt={movie.title} />
+									<p>{movie.overview}</p>
+								</Container>
+							)
+						})
+					) : (
+						<MinorError errorMessage='There are no movies to display right now' />
+					)}
+				</Container>
+			</>
 		)
 	}
 }
