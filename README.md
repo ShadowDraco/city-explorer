@@ -33,6 +33,14 @@
 - 02-21-2023 12:30pm - updated readme and branched for weather api
 - 02-21-2023 5:04pm - finished all requirements to add server requests to client
 
+- 02-22-2023 10:00am - branched for refactoring weather and adding movie API
+- 02-22-2023 10:50am - implemented proper weather api in front and back end
+- 02-22-2023 11:30am - added locationInfo component to write cleaner code
+- 02-22-2023 11:50am - implemented locationInfo successfully
+- 02-21-2023 2:45pm - adds successful movie queries and display
+- 02-21-2023 4:07pm - adds support for when request limit is reached
+- 02-21-2023 4:07pm - adds support for when request limit is reached
+
 ## Credit and Collaborations
 
 Day one planned with:
