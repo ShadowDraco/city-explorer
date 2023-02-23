@@ -47,6 +47,7 @@
 - 02-23-2023 8:21am - added result component for cleaner code
 - 02-23-2023 8:31am - added search bar component for cleaner code
 - 02-23-2023 9:58am - fixes weather request, providing multiple forecasts
+- 02-23-2023 10:05am - adds weekday date to weather component
 
 ## Credit and Collaborations
 
