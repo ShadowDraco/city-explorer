@@ -9,7 +9,7 @@ class SearchResults extends React.Component {
 		super(props)
 
 		this.ACCESS_TOKEN = process.env.REACT_APP_LOCATION_ACCESS_TOKEN
-		this.API_URL = process.env.REACT_APP_API_URL
+		this.API_URL = 'http://localhost:8000'
 		this.state = { mapLocation: '', mapImage: '', zoom: 15, weatherInfo: '' }
 	}
 
@@ -55,6 +55,7 @@ class SearchResults extends React.Component {
 				searchQuery: result.display_name.split(',')[0],
 			})
 			.then(res => {
+				console.log(res.data)
 				// set state resulting forecasts
 				this.setState({ forecasts: res.data, error: '' })
 			})

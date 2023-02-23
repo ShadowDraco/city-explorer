@@ -37,15 +37,16 @@
 - 02-22-2023 10:50am - implemented proper weather api in front and back end
 - 02-22-2023 11:30am - added locationInfo component to write cleaner code
 - 02-22-2023 11:50am - implemented locationInfo successfully
-- 02-21-2023 2:45pm - adds successful movie queries and display
-- 02-21-2023 4:07pm - adds support for when request limit is reached
-- 02-21-2023 4:31pm - updates request routes
-- 02-21-2023 5:45pm - finished deployment
+- 02-22-2023 2:45pm - adds successful movie queries and display
+- 02-22-2023 4:07pm - adds support for when request limit is reached
+- 02-22-2023 4:31pm - updates request routes
+- 02-22-2023 5:45pm - finished deployment
 
-- 02-22-2023 7:50am - branched for refactoring
-- 02-22-2023 8:15am - commented code getting ready to add new component
-- 02-22-2023 8:21am - added result component for cleaner code
-- 02-22-2023 8:31am - added search bar component for cleaner code
+- 02-23-2023 7:50am - branched for refactoring
+- 02-23-2023 8:15am - commented code getting ready to add new component
+- 02-23-2023 8:21am - added result component for cleaner code
+- 02-23-2023 8:31am - added search bar component for cleaner code
+- 02-23-2023 9:58am - fixes weather request, providing multiple forecasts
 
 ## Credit and Collaborations
 
