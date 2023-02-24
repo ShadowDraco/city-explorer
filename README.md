@@ -49,6 +49,7 @@
 - 02-23-2023 9:58am - fixes weather request, providing multiple forecasts
 - 02-23-2023 10:05am - adds weekday date to weather component
 - 02-23-2023 2:49pm - fixes movie api requests
+- 02-23-2023 4:45 - adds movie and WeatherDay Components
 
 ## Credit and Collaborations
 
