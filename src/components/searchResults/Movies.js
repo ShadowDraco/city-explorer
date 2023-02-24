@@ -18,7 +18,7 @@ export default class Movies extends React.Component {
 				<Container className='movie-container mt-3'>
 					{this.props.movies.length > 0 ? (
 						this.props.movies.map(movie => {
-							return <Movie move={movie} />
+							return <Movie key={movie.image_url} movie={movie} />
 						})
 					) : (
 						<MinorError errorMessage='There are no movies for the area' />

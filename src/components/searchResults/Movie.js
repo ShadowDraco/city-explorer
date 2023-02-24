@@ -11,7 +11,7 @@ export default class Movie extends React.Component {
 
 	render() {
 		return (
-			<Container key={this.props.movie.image_url} className='movie'>
+			<Container className='movie'>
 				<Image src={this.props.movie.image_url} alt={this.props.movie.title} />
 				<p>{this.props.movie.overview}</p>
 			</Container>
