@@ -15,7 +15,6 @@ class SearchResults extends React.Component {
 
 	// when user selects a location after searching update state to include information to be displayed by various components
 	setMapLocation = async (result, index) => {
-		console.log(result)
 		this.setState({
 			lat: result.lat,
 			lon: result.lon,

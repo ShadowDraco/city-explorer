@@ -2,8 +2,8 @@ import React from 'react'
 
 import MinorError from '../MinorError'
 
-import Image from 'react-bootstrap/Image'
 import Container from 'react-bootstrap/Container'
+import Movie from './Movie'
 
 export default class Movies extends React.Component {
 	constructor(props) {
@@ -18,12 +18,7 @@ export default class Movies extends React.Component {
 				<Container className='movie-container mt-3'>
 					{this.props.movies.length > 0 ? (
 						this.props.movies.map(movie => {
-							return (
-								<Container key={movie.image_url} className='movie'>
-									<Image src={movie.image_url} alt={movie.title} />
-									<p>{movie.overview}</p>
-								</Container>
-							)
+							return <Movie key={movie.image_url} movie={movie} />
 						})
 					) : (
 						<MinorError errorMessage='There are no movies for the area' />
