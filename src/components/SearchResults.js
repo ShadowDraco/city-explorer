@@ -35,7 +35,6 @@ class SearchResults extends React.Component {
 				searchQuery: name,
 			})
 			.then(res => {
-				console.log(res)
 				// update movies with success
 				this.setState({ movies: res.data, error: '' })
 			})
@@ -56,7 +55,6 @@ class SearchResults extends React.Component {
 				searchQuery: result.display_name.split(',')[0],
 			})
 			.then(res => {
-				console.log(res.data)
 				// set state resulting forecasts
 				this.setState({ forecasts: res.data, error: '' })
 			})
