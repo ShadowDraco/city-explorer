@@ -31,11 +31,10 @@ class SearchResults extends React.Component {
 	// get movies for a 'resulting' location
 	getMovieFor = async name => {
 		axios
-			.post(`${this.API_URL}/movies`, {
-				searchQuery: name,
+			.get(`${this.API_URL}/movies`, {
+				params: { searchQuery: name },
 			})
 			.then(res => {
-				console.log(res)
 				// update movies with success
 				this.setState({ movies: res.data, error: '' })
 			})
@@ -50,13 +49,14 @@ class SearchResults extends React.Component {
 	getWeatherFor = async result => {
 		// request weather at api
 		axios
-			.post(`${this.API_URL}/weather`, {
-				lat: result.lat,
-				lon: result.lon,
-				searchQuery: result.display_name.split(',')[0],
+			.get(`${this.API_URL}/weather`, {
+				params: {
+					lat: result.lat,
+					lon: result.lon,
+					searchQuery: result.display_name.split(',')[0],
+				},
 			})
 			.then(res => {
-				console.log(res.data)
 				// set state resulting forecasts
 				this.setState({ forecasts: res.data, error: '' })
 			})
