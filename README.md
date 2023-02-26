@@ -52,7 +52,7 @@
 - 02-23-2023 4:45 - adds movie and WeatherDay Components
 
 - 02-24-2023 8:40am - branch for performance like caching update readme
-- 02-24-2023 1:35pm - adds local cache to server for movies and weather
+- 02-24-2023 1:35pm - updates requests to use GET, requests are now cached server-side
 
 ## Credit and Collaborations
 
@@ -61,3 +61,9 @@ Day one planned with:
 - [Darran Holmes](https://github.com/darranholmes74)
 
 ![Whiteboard plan](./whiteboards/CityExplorer1.png)
+
+Day 5 with Kawika Miler
+
+- [Kawika Miller](https://github.com/KMArtwork)
+
+![Whiteboard plan](./whiteboards/CityExplorer5.png)
